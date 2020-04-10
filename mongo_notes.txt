@@ -1,0 +1,54 @@
+mongo
+
+
+importing json file in linux shell for mongodb----------------model schema------------
+$mongoimport --db learning_mongo --collection people --jsonArray --file people.json
+$ mongoimport --db learning_mongo --collection movies --jsonArray --file movies.json
+db.people.findOne({_id:"Brad Pitt"})
+db.people.find({_id:"Brad Pitt"})
+db.people.find({_id:"Brad Pitt"}).pretty()
+
+db.movies.findOne({_id:"Fight Club"})
+-----------------
+> var moviename="The Avengers"
+> var movieobj=db.movies.findOne({_id:moviename})
+> movieobj.cast = []
+> var personArray =db.people.find({movies:moviename})
+> personArray.forEach(function(person){movieobj.cast.push(person)})
+> movieobj
+----------------------------------------
+##########""unique Index""################# 
+db.tours.find({$text:{$search:"wine"}},{score:{$meta:"textScore"}}).pretty()
+db.tours.find({$text:{$search:"wine"}},{score:{$meta:"textScore"}}).pretty().sort({score:{$meta:"textScore"}})
+
+db.tours.find({$text:{$search:"wine"}},{score:{$meta:"textScore"}}).pretty().sort({score:{$meta:"textScore"}})
+db.tours.find({$text:{$search:"wine"}},{score:{$meta:"textScore"},tourName:1,_id:0}).pretty().sort({score:{$meta:"textScore"}})
+
+db.tours.find({tourDescription:{$regex:/backpack/}})
+
+db.tours.find({tourDescription:{$regex:/backpack/}},{tourName:1})
+db.tours.find({tourDescription:{$regex:/backpack/}},{tourName:1,_id:0})
+db.tours.find({tourDescription:{$regex:/backpack/i}},{tourName:1,_id:1})    ------- adding option to ignore the case
+db.tours.find({tourDescription:/backpack/i},{tourName:1,_id:1})
+
+"""""""Aggregation""""""
+db.tours.count({tourPackage:"Cycle California"})                              ---------------------------------for one
+db.tours.aggregate([{$group:{_id:'$tourPackage',count: {$sum:1}}}])            --------------for all
+db.tours.aggregate([{$group:{_id:'$tourPackage', average:{$avg: '$tourPrice'},count: {$sum:1}}}])  ------------- average 
+db.tours.aggregate([{$group: {_id: '$tourOrganizer.OrganizerName',count:{$sum:1}}} ])
+db.tours.aggregate([{$group: {_id: '$tourOrganizer.organizerName',count:{$sum:1}}} ])
+db.tours.aggregate([{$group: {_id: '$tourPackage',average: {$avg: '$tourPrice'}, count: {$sum:1}}} ])
+> db.tours.aggregate([{$group: {_id: '$tourPackage',average: {$avg: '$tourPrice'}, count: {$sum:1}}},{$out:'prices'}])            ------ inserting result in new catagory using out operator
+> db.prices.find()
+
+
+
+
+
+
+
+
+
+
+
+
