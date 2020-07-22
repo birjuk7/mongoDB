@@ -1,0 +1,30 @@
+mongodb
+
+It is an open-source document db that provides high performance, rich query language, HA, Horizontal scalability with support for multiple storage engines.
+
+Replica set:-It is a group of mongod processes (or mongoDB servers) that maintain the same data set.Replication provides redundency and high availability. The minimum
+architecture of a replica set has 3 members.
+A 3 members replica set can have either 3 members that hold data or 2 member that hold data and an arbiter.
+
+I.Primary   2.secondary 3.arbiter
+
+
+
+docker service create --replicas 3 --name mydb -d  -e MYSQL_ROOT_PASSWORD=123456 mysql:5
+docker service create --name redis --replicas 3 --secret mysecret redis:alpine
+docker container ls
+docker node ls
+docker service ls
+docker service ps mydb
+docker service scale mydb=2
+
+docker exec -it <container-id> bash   ## to enter in mydb terminal
+  mysql -u root -p
+  Password: 123456
+
+  show databases;
+  use sys;
+  
+ To see the emp and dept tables
+  select * from emp;
+  select * from dept;
