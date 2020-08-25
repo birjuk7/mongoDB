@@ -1,0 +1,7 @@
+use db_name;          ## to create database
+db.createCollection("log", { capped : true, size : 5242880, max : 5000 } )
+show collections
+db.stats()
+db.biodata.insertOne({"_id":2, "name":"manoj", class : 9 } )
+db.biodata.insertOne({"_id":1, "name":"vinod", class : 10 } )
+
