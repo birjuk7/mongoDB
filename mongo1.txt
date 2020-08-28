@@ -1,0 +1,26 @@
+To take backup in windows via cmd 
+cd C:\Program Files\MongoDB\Server\4.2\bin
+mongo.exe
+open cmd as admin rights
+
+restore command in windows cmd
+mongorestore.exe --db birju --collection sdg dump/monster/duck.bson              ## sdg is empty here
+
+
+backup command in windows cmd
+mongodump.exe           # to take complete backup of all databases
+mongodump.exe --db monster    # to take complete backup of single database
+mongodump.exe --db db_name --collection students
+mongodump.exe --db birju --collection students
+
+
+
+Delete database
+use database_name
+db.dropDatabase()    ## here the current db will be deleted
+
+
+
+
+
+
