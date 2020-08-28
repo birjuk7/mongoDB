@@ -1,19 +1,27 @@
+command to export DB  (backup)
+mongodump --db database_name --collection collection_name
+
+command worked to import DB  (restore)
+mongorestore --db database_name path_to_bson_file
+-----------------------------------------------------------------------------------------------
 To take backup in windows via cmd 
 cd C:\Program Files\MongoDB\Server\4.2\bin
-mongo.exe
-open cmd as admin rights
+mongo.exe                             ### type this command
+open cmd as admin in windows
 
 restore command in windows cmd
 mongorestore.exe --db birju --collection sdg dump/monster/duck.bson              ## sdg is empty here
 
-
+-----------------------------------------------------------------------------------------------
 backup command in windows cmd
-mongodump.exe           # to take complete backup of all databases
-mongodump.exe --db monster    # to take complete backup of single database
-mongodump.exe --db db_name --collection students
-mongodump.exe --db birju --collection students
+mongodump.exe                                        # to take complete backup of all databases
+mongodump.exe --db monster                           # to take complete backup of single database
+mongodump.exe --db db_name --collection students     # to take backup of single collection of specific database
+mongodump.exe --db birju --collection students       #  <-------- example 
 
 
+
+-----------------------------------------------------------------------------------------------
 
 Delete database
 use database_name
