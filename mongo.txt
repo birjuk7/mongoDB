@@ -2,7 +2,7 @@
 show dbs
 show collections
 create dell collection in a database with some data inside
-db.dell.insert({ name:"mohit", age:30, company:"nic"})
+db.dell.insert({ name:"mohit", age:30, company:"google"})
 db.dell.find()
 db.dell.find().limit(2)
 
