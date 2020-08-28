@@ -1,0 +1,18 @@
+use db_name
+use test                ##<-----example
+show collections
+to delete database
+db.dropDatabase()       ##<-----test db now deleted
+show collections
+
+to delete collection   
+db.students.drop()      ##<-----to delete collection 
+
+## here by crating test db, existing db dump named monster is restored in test
+mongorestore.exe --db test dump/monster
+
+
+
+
+
+
