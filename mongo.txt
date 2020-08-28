@@ -1,0 +1,94 @@
+
+show dbs
+show collections
+create dell collection in a database with some data inside
+db.dell.insert({ name:"mohit", age:30, company:"nic"})
+db.dell.find()
+db.dell.find().limit(2)
+
+
+create students collection in database
+db.createCollection("students")
+
+to delete collection 
+db.collection_name.drop()
+
+db.students.find()
+db.createcollection("students")
+db.students.insert({ name:"john", age:11, school:"mvn"})
+db.students.find().forEach(printjson);
+db.duck.find({"_id": ObjectId("5f46240a5a343b5108148d37")})
+
+copy nul alpha.json > nul   ### create empty file via cmd
+dir                         ### to list all files & directories
+
+
+To take backup in windows via cmd 
+cd C:\Program Files\MongoDB\Server\4.2\bin
+
+mongodump.exe           # to take complete backup of all databases
+mongodump.exe --db monster    # to take complete backup of single database
+mongodump.exe --db db_name --collection students 
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
