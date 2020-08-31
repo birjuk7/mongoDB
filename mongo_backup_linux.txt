@@ -1,0 +1,76 @@
+mongo_backup
+show dbs
+db.adminCommand('listDatabases')         ## list db with size on disk
+db.getMongo().getDBNames()
+db.getCollectionNames()
+
+show databases     //Print a list of all available databases.
+show dbs   // Print a list of all databases on the server.
+
+Few more basic commands
+
+use <db>    // Switch current database to <db>. The mongo shell variable db is set to the current database.
+show collections    //Print a list of all collections for current database.
+show users  //Print a list of users for current database.
+show roles  //Print a list of all roles, both user-defined and built-in, for the current database
+
+db.biodata.insertOne({name:"mayank","class":12 })
+
+
+##############Linux system#####################
+mongodump -d <database name> -o <target directory>
+mongodump -d sdg -o bk_dir                                                             # backup whole database
+or
+mongodump --db <database name> -o <target directory>
+mongodump --db sdg -o bk_dir
+
+mongodump --db monster --out `date +"%m-%d-%Y"`                    		  ## backup via date in numeric
+mongodump --db movies --out `date +"%m%b%Y--%H:%M"`        		  ## backup via date and time
+3 3 * * * mongodump --out /path_of_your_backup/`date +"%m-%d-%y"`         ## set backup in crontab
+ 
+
+exclude a particular collection from database while taking backup
+mongodump --db sdg --excludeCollection=data -o bk1
+
+to output the dump to an archive file:
+mongodump --archive=test.archive --db monster 
+
+backup single collection
+mongodump --db sdg --collection data                                                # backup in default dir dump
+mongodump --db sdg --collection data -o bk_dir      				# backup in bk_dir 
+
+
+mongoexport --db sdg --collection data --limit 3 --out test.json             #backup limited collection of a db
+mongoexport --db sdg --collection data --out test1.json                       # backup complete collection of a db 
+
+
+###########################################
+
+Restore:
+mongorestore --db db_name --drop /path_of_your_backup/01-01-19/db_name/
+mongorestore --db pan --drop sdg/                                  # <-------------example
+
+
+Restore complete database command
+mongorestore -d rest sdg          #  sdg is backup dir and rest is dir where data is restored
+
+mongorestore -d rest -c parrot 
+
+restore single collection
+mongorestore -d rest -c parrot data.bson
+mongorestore -d monster -c duck data.bson
+
+Import is used for restoring the data
+
+
+
+
+
+
+
+
+
+
+
+
+
