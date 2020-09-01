@@ -1,0 +1,27 @@
+use reporting
+db.createUser(
+  {
+    user: "reportsUser",
+    pwd: passwordPrompt(),  // or cleartext password
+    roles: [
+       { role: "read", db: "reporting" },
+       { role: "read", db: "products" },
+       { role: "read", db: "sales" },
+       { role: "readWrite", db: "accounts" }
+    ]
+  }
+)
+
+
+=============================================================================================
+to delete all the backups older than 7 days you can use the following bash command:
+3 1 * * * find /path_of_your_backup/ -mtime +7 -exec rm -rf {} \;
+
+
+db.createUser({user:'admin',pwd:'admin',roles: [{role:'root',db:'admin'}]})
+db.createUser({user: "birju",pwd: "abc@123",roles: [ { role: "root", db: "admin" } ]})
+
+Few more basic commands
+show users  //Print a list of users for current database.
+show roles  //Print a list of all roles, both user-defined and built-in, for the current database
+=============================================================================================
