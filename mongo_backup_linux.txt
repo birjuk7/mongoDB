@@ -1,3 +1,4 @@
+mongodump -h 127.0.0.1 -u birju -p password@123 --db monster --port 27017 --out `date +"%d-%m-%y"`
 mongo_backup
 show dbs
 db.adminCommand('listDatabases')         ## list db with size on disk
