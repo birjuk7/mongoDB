@@ -1,0 +1,36 @@
+
+JSON VS BSON
+JSON :Java Script Object Notation
+JSON supports 6 data types:
+1.String 2.Number 3.Boolean 4.Array 5.Object 6.Null
+
+BSON:Binary JSON
+Apart from json format BSON also supports data types like:
+1.Double 2.32-bit integer 3.64-bit integer 4.Regular expression 5.Timestamp 6.Date 7.ObjectId
+MongoDB stores documents in BSON format. It is due to the reason that it supports multiple data types.
+
+Mechanism to convert
+JSON to BSON
+BSON to JSON
+Extended JSON format mechanism is used to convert json to bson, and bson to json
+Extended json consists of:1.shell mode 2.strict mode 
+Both these mode are supported by External mongoDB drivers and REST API and mongoimport utility
+
+
+mongoDB structure
+
+
+
+mysql:contains tables with rows and columns
+document database:data is stored in separate documents each document is independent from other document. Here data is stored in json format.
+
+
+
+
+mongodb:MongoDB stores documents in BSON format. It is due to the reason that it supports multiple data types.
+
+
+
+
+
+
