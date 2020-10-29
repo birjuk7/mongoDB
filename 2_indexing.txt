@@ -1,0 +1,11 @@
+create index
+
+
+db.orders.find({"CustomerID":'VINET'})
+db.orders.find()
+ db.orders.find({"CustomerID":'VINET'}).explain("executionStats")
+
+db.orders.createIndex({CustomerID:1})
+
+ db.orders.find({"CustomerID":'VINET'}).explain("executionStats")
+ db.orders.dropIndex({CustomerID:1})
