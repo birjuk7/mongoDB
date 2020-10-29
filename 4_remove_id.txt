@@ -1,0 +1,1 @@
+db.myCollection1.find({},{_id: null,"tags":12})
